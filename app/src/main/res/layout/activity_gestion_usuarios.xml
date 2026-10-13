@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="32dp"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/imgLogoGestion"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/logo"
+        android:contentDescription="Logo de la aplicación"
+        android:scaleType="centerInside" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="GESTIÓN DE USUARIOS"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnIngresarUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="40dp"
+        android:text="INGRESAR USUARIO"
+        android:textStyle="bold"
+        android:backgroundTint="#2EF29B"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/btnListarUsuarios"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="20dp"
+        android:text="LISTAR USUARIOS"
+        android:textStyle="bold"
+        android:backgroundTint="#2EF29B"
+        android:textColor="#000000" />
+
+</LinearLayout>

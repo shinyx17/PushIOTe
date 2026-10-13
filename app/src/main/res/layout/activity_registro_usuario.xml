@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:paddingBottom="40dp"
+        android:background="@android:color/white">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/logo"
+            android:contentDescription="Logo de la aplicación"
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="REGISTRO DE USUARIO"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etNombres"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="25dp"
+            android:hint="NOMBRES"
+            android:inputType="textPersonName"
+            android:maxLines="1"
+            android:padding="12dp" />
+
+        <EditText
+            android:id="@+id/etApellidos"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="12dp"
+            android:hint="APELLIDOS"
+            android:inputType="textPersonName"
+            android:maxLines="1"
+            android:padding="12dp" />
+
+        <EditText
+            android:id="@+id/etEmailRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="12dp"
+            android:hint="EMAIL"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:padding="12dp" />
+
+        <EditText
+            android:id="@+id/etPasswordRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="12dp"
+            android:hint="CONTRASEÑA"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:padding="12dp" />
+
+        <EditText
+            android:id="@+id/etConfirmarPasswordRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="12dp"
+            android:hint="REPETIR CONTRASEÑA"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:padding="12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="La contraseña debe tener mínimo 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial."
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/btnRegistrarUsuario"
+            android:layout_width="200dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="25dp"
+            android:text="REGISTRAR"
+            android:textStyle="bold"
+            android:backgroundTint="#2EF29B"
+            android:textColor="#000000" />
+
+    </LinearLayout>
+
+</ScrollView>
