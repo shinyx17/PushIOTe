@@ -1,49 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
-    android:padding="32dp"
+    android:fillViewport="true"
     android:background="@android:color/white">
 
-    <ImageView
-        android:id="@+id/imgLogoGestion"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_marginTop="60dp"
-        android:src="@drawable/logo"
-        android:contentDescription="Logo de la aplicación"
-        android:scaleType="centerInside" />
-
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="GESTIÓN DE USUARIOS"
-        android:textSize="22sp"
-        android:textStyle="bold" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="32dp">
 
-    <Button
-        android:id="@+id/btnIngresarUsuario"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_marginTop="40dp"
-        android:text="INGRESAR USUARIO"
-        android:textStyle="bold"
-        android:backgroundTint="#2EF29B"
-        android:textColor="#000000" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:text="GESTIÓN DE USUARIOS (CRUD)"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000000" />
 
-    <Button
-        android:id="@+id/btnListarUsuarios"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_marginTop="20dp"
-        android:text="LISTAR USUARIOS"
-        android:textStyle="bold"
-        android:backgroundTint="#2EF29B"
-        android:textColor="#000000" />
+        <EditText
+            android:id="@+id/etCrudEmail"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:hint="CORREO ELECTRÓNICO"
+            android:inputType="textEmailAddress"
+            android:padding="12dp" />
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/etCrudNombre"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="12dp"
+            android:hint="NOMBRE COMPLETO"
+            android:inputType="textPersonName"
+            android:padding="12dp" />
+
+        <EditText
+            android:id="@+id/etCrudPassword"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="12dp"
+            android:hint="CONTRASEÑA (Para Crear/Modificar)"
+            android:inputType="textPassword"
+            android:padding="12dp" />
+
+        <!-- Botones de Acción CRUD: Fila 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/btnCrudCrear"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:backgroundTint="#2EF29B"
+                android:text="CREAR"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnCrudBuscar"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:backgroundTint="#000000"
+                android:text="BUSCAR"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Botones de Acción CRUD: Fila 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/btnCrudActualizar"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:backgroundTint="#FFC107"
+                android:text="ACTUALIZAR"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnCrudEliminar"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:backgroundTint="#FF4D4D"
+                android:text="ELIMINAR"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnCrudListar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#00838F"
+            android:text="LISTAR USUARIOS"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnCrudVolver"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#E0E0E0"
+            android:text="VOLVER AL MENÚ"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</ScrollView>

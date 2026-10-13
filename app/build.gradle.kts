@@ -4,14 +4,12 @@ plugins {
 
 android {
     namespace = "com.example.pushiote"
-    compileSdk {
-        version = release(37)
-    }
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.pushiote"
         minSdk = 24
-        targetSdk = 37
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -20,9 +18,11 @@ android {
 
     buildTypes {
         release {
-            optimization {
-                enable = false
-            }
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -36,17 +36,24 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.activity.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.constraintlayout)
+    // AndroidX Base y Material
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(libs.androidx.junit)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.activity.ktx)
 
-    // Lottie para la animación del Splash
-    implementation("com.airbnb.android:lottie:6.6.2")
-    // SweetAlert para mensajes de éxito y error
+    // Volley para peticiones HTTP (AWS y pnk.cl)
+    implementation("com.android.volley:volley:1.2.1")
+
+    // SweetAlert para diálogos e interacción
     implementation("com.github.f0ris.sweetalert:library:1.6.2")
+
+    // Lottie para animaciones (Splash y Sensores)
+    implementation("com.airbnb.android:lottie:6.6.2")
+
+    // Testing
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
@@ -11,92 +9,181 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="32dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="DATOS DE SENSORES"
-            android:textSize="22sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="35dp"
+            android:text="PANEL DE SENSORES IOT"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000000" />
 
+        <TextView
+            android:id="@+id/tvEstadoConexion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Estado: Esperando lectura..."
+            android:textColor="#666666"
+            android:textSize="14sp" />
+
+        <!-- Tarjeta Temperatura -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="25dp"
+            android:background="#F5F5F5"
             android:orientation="vertical"
-            android:padding="20dp"
-            android:background="#EEEEEE">
+            android:padding="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="🌡 TEMPERATURA"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:text="Temperatura"
+                android:textColor="#333333"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tvTemperatura"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="24 °C"
-                android:textSize="28sp" />
-
+                android:layout_marginTop="5dp"
+                android:text="-- °C"
+                android:textColor="#000000"
+                android:textSize="28sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
+        <!-- Tarjeta Humedad -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
+            android:background="#F5F5F5"
             android:orientation="vertical"
-            android:padding="20dp"
-            android:background="#EEEEEE">
+            android:padding="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="💧 HUMEDAD"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:text="Humedad"
+                android:textColor="#333333"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tvHumedad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="60 %"
-                android:textSize="28sp" />
-
+                android:layout_marginTop="5dp"
+                android:text="-- %"
+                android:textColor="#000000"
+                android:textSize="28sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
+        <!-- Control Linterna y Ampolleta (Requisito de Pauta) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
+            android:background="#F5F5F5"
             android:orientation="vertical"
             android:padding="20dp"
-            android:background="#EEEEEE">
+            android:gravity="center_horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="💡 LUMINOSIDAD"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:text="Control de Hardware / Dispositivo"
+                android:textColor="#333333"
+                android:textStyle="bold"
+                android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/tvLuminosidad"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="75 %"
-                android:textSize="28sp" />
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="15dp"
+                android:weightSum="2">
 
+                <Button
+                    android:id="@+id/btnLinterna"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:backgroundTint="#FFC107"
+                    android:text="LINTERNA: OFF"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnAmpolleta"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:backgroundTint="#000000"
+                    android:text="AMPOLLETA: APAGADA"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
         </LinearLayout>
 
-    </LinearLayout>
+        <!-- Tarjeta Estado del Dispositivo / Sensores Adicionales -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="#F5F5F5"
+            android:orientation="vertical"
+            android:padding="20dp">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Datos de la API (Raw Json / Detalle)"
+                android:textColor="#333333"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvDetalleSensors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Presiona actualizar para obtener datos."
+                android:textColor="#555555"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <!-- Botón Actualizar Datos -->
+        <Button
+            android:id="@+id/btnActualizarSensores"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#2EF29B"
+            android:text="ACTUALIZAR DATOS"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <!-- Botón Volver -->
+        <Button
+            android:id="@+id/btnVolverMenu"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#000000"
+            android:text="VOLVER AL MENÚ"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 </ScrollView>

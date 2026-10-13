@@ -19,6 +19,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        // Repositorio de SweetAlert corregido
+        maven { url = uri("https://jitpack.io") }
     }
 }
 

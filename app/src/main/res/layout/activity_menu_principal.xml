@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
@@ -12,15 +10,17 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:padding="32dp">
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:paddingBottom="32dp">
 
         <ImageView
             android:id="@+id/imgLogoMenu"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_marginTop="30dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="40dp"
             android:src="@drawable/logo"
-            android:contentDescription="Logo de la aplicación"
+            android:contentDescription="Logo"
             android:scaleType="centerInside" />
 
         <TextView
@@ -28,39 +28,61 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:text="MENÚ PRINCIPAL"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/btnGestionUsuarios"
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:layout_marginTop="35dp"
-            android:text="GESTIÓN DE USUARIOS"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:backgroundTint="#2EF29B"
             android:textColor="#000000" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Selecciona una opción para continuar"
+            android:textColor="#666666"
+            android:textSize="14sp" />
+
+        <!-- Botón Sensores IoT -->
         <Button
             android:id="@+id/btnSensores"
             android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:layout_marginTop="20dp"
-            android:text="DATOS DE SENSORES"
+            android:layout_height="60dp"
+            android:layout_marginTop="35dp"
+            android:text="MONITOR DE SENSORES (IOT)"
             android:textStyle="bold"
             android:backgroundTint="#2EF29B"
             android:textColor="#000000" />
 
+        <!-- Botón CRUD Usuarios -->
+        <Button
+            android:id="@+id/btnCrudUsuarios"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:text="GESTIÓN DE USUARIOS (CRUD)"
+            android:textStyle="bold"
+            android:backgroundTint="#000000"
+            android:textColor="#FFFFFF" />
+
+        <!-- Botón Información Desarrollador -->
         <Button
             android:id="@+id/btnDesarrollador"
             android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:layout_marginTop="20dp"
-            android:text="DATOS DEL DESARROLLADOR"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:text="ACERCA DEL DESARROLLADOR"
             android:textStyle="bold"
-            android:backgroundTint="#2EF29B"
+            android:backgroundTint="#E0E0E0"
             android:textColor="#000000" />
 
-    </LinearLayout>
+        <!-- Botón Cerrar Sesión -->
+        <Button
+            android:id="@+id/btnCerrarSesion"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:text="CERRAR SESIÓN"
+            android:textStyle="bold"
+            android:backgroundTint="#FF4D4D"
+            android:textColor="#FFFFFF" />
 
+    </LinearLayout>
 </ScrollView>

@@ -8,6 +8,10 @@ import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
+import com.android.volley.Request
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import org.json.JSONObject
 import java.text.Normalizer
 
 class ListarUsuariosActivity : AppCompatActivity() {
@@ -58,15 +62,13 @@ class ListarUsuariosActivity : AppCompatActivity() {
 
             val usuario = usuariosFiltrados[position]
 
-            val posicionReal =
-                UsuarioRepository.usuarios.indexOf(usuario)
-
             val intent = Intent(
                 this,
-                ModificarUsuarioActivity::class.java
+                GestionUsuariosActivity::class.java
             )
 
-            intent.putExtra("posicion", posicionReal)
+            intent.putExtra("email", usuario.email)
+            intent.putExtra("nombre", usuario.nombres)
 
             startActivity(intent)
         }
@@ -74,10 +76,43 @@ class ListarUsuariosActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        obtenerUsuariosDesdeAWS()
+    }
 
-        actualizarLista(
-            etBuscarUsuario.text.toString()
-        )
+    private fun obtenerUsuariosDesdeAWS() {
+        val stringRequest = object : StringRequest(
+            Request.Method.POST, Config.URL_CRUD_USUARIOS,
+            { response ->
+                try {
+                    val jsonResponse = JSONObject(response)
+                    val status = jsonResponse.optString("status")
+                    if (status == "success") {
+                        val jsonArray = jsonResponse.getJSONArray("usuarios")
+                        UsuarioRepository.usuarios.clear()
+                        for (i in 0 until jsonArray.length()) {
+                            val obj = jsonArray.getJSONObject(i)
+                            val nombre = obj.optString("nombre")
+                            val email = obj.optString("email")
+                            UsuarioRepository.usuarios.add(Usuario(nombre, "", email))
+                        }
+                        actualizarLista(etBuscarUsuario.text.toString())
+                    }
+                } catch (_: Exception) {
+                    // Si falla el parseo, se mantiene la lista local
+                }
+            },
+            { _ ->
+                // Si falla la red, se mantiene la lista local
+            }
+        ) {
+            override fun getParams(): MutableMap<String, String> {
+                val params = HashMap<String, String>()
+                params["accion"] = "listar"
+                return params
+            }
+        }
+
+        Volley.newRequestQueue(this).add(stringRequest)
     }
 
     private fun actualizarLista(busqueda: String) {
@@ -96,7 +131,11 @@ class ListarUsuariosActivity : AppCompatActivity() {
             }.toMutableList()
 
         val textos = usuariosFiltrados.map { usuario ->
-            "${usuario.nombres} ${usuario.apellidos} - ${usuario.email}"
+            if (usuario.apellidos.isNotEmpty()) {
+                "${usuario.nombres} ${usuario.apellidos} - ${usuario.email}"
+            } else {
+                "${usuario.nombres} - ${usuario.email}"
+            }
         }
 
         adapter.clear()
